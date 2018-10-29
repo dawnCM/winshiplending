@@ -1,0 +1,59 @@
+    <html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <meta name="description" content="">
+        <meta name="revisit-after" content="10 days">
+        <meta name="author" content="Securaloan.com">
+        <title>Securaloan</title>    
+  <link rel="stylesheet" type="text/css" href="https://securaloan.com/css/bootstrap-3.0.2.css?1451771907"/>
+  <link rel="stylesheet" type="text/css" href="https://securaloan.com/css/bootstrap-override.css?1451771907"/>
+  <link rel="stylesheet" type="text/css" href="https://securaloan.com/css/pace.css?1451771907"/>
+  <link rel="stylesheet" type="text/css" href="https://securaloan.com/theme/Alpha/css/siteStyles.css?1461182333"/>
+  <link rel="stylesheet" type="text/css" href="https://securaloan.com/theme/Alpha/css/formStyles.css?1461200348"/>
+  <link rel="stylesheet" type="text/css" href="https://securaloan.com/theme/Alpha/css/fontawesome.min.css?1451771907"/>
+  <link rel="stylesheet" type="text/css" href="/theme/Alpha/css/ekko-lightbox.min.css?1451771907"/>
+        <link href='//fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+        
+  <script type="text/javascript" src="https://securaloan.com/js/jquery/jquery-1.11.3.min.js?1451771907"></script>
+  <script type="text/javascript" src="https://securaloan.com/js/pace.js?1451771907"></script>
+  <script type="text/javascript" src="https://securaloan.com/js/jquery/jquery-maskedinput.min.js?1451771907"></script>
+  <script type="text/javascript" src="https://securaloan.com/js/bootstrap/bootstrap-3.0.2.min.js?1451771907"></script>
+  <script type="text/javascript" src="https://securaloan.com/js/resources.js?1451771907"></script>
+  <script type="text/javascript" src="https://securaloan.com/theme/Alpha/js/ekko-lightbox.min.js?1451771907"></script>
+  <script type="text/javascript" src="https://securaloan.com/js/validation.js?1451771907"></script>
+  <script type="text/javascript" src="https://securaloan.com/theme/Alpha/js/custom.js?1461183010"></script>
+</head>
+  <body>
+<div id="formwrapper" class="container">
+  <div class="row"><style type="text/css">p , label{text-align: center; font-weight: normal;}</style>
+      <div class="col-sm-12">
+          <form method="post" id="basicWizard" class="panel-wizard">
+          <div class="row" style="margin-top:20px;">
+              <div class="col-sm-12" style="">
+                <div class="ckbox ckbox-success">
+                    <input type="checkbox" value="true" id="AgreeConsent" name="AgreeConsent"/>
+                    <label for="AgreeConsent">
+                    <?php echo ($this->Session->read('Application.CoApplicant') == 'Yes') ? 'We' : 'I';?>
+                    understand, agree, and authorize that my information may be sent to lenders on my behalf who may obtain consumer reports and related information about me from one or more consumer reporting agencies, such as TransUnion, Experian, and Equifax.</label>
+                </div>
+              </div>
+              <div class="col-sm-12" >
+              <div class="col-sm-8 col-sm-offset-2" style="border: 1px solid #ccc; background-color: #f4f4f4">
+                <label for="AgreePhone">WANT TO RECEIVE A SECURE LINK TO YOUR CURRENT APPLICATION 
+                AND ADDITIONAL LOAN OFFERS?
+                <p>Sign up to receive SMS Alerts from Loan Matching Center with your 
+                personal link to apply again,</p>
+               <div class="col-sm-4" style="float: none; margin: 0 auto 1.5em; border:1px solid #CCC; background-color: #f1f1f1; padding: 10px">
+                <p>Enter Your Primary Number</p> 
+                <input name="Phone_TCPA" id="Phone_TCPA" type="text"  tabindex="8" size="20" value="<?php echo $this->Session->read('Application.Phone_TCPA'); ?>" placeholder="Phone Number" data-parsley-pattern="/^\s*(?:\+?(\d{1,3}))?[-. (]*(\d{3})[-. )]*(\d{3})[-. ]*(\d{4})(?: *x(\d+))?\s*$/"/></div>
+                <p>By entering my mobile phone number,I agree by electronic signature to 
+                be contacted by Winshiplending, participating lenders, and/or <a href= "" id='link'><b><underline><font color= 'blue'>Third Parties</font></underline></b></a> about financial services and credit related offers by a live agent, artificial or prerecorded voice, and SMS text at the number I provided, dialed manually or by auto dialer, even if I have previously indicated my preference of "do not call" with a government registry (consent to be contacted is not a condition to purchase services; consent can be revoked at any time). Message and data rates may apply. Receive recurring monthly messages.</p></label>
+              </div></div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,23 @@
+<IfModule mod_rewrite.c>
+	RewriteEngine On
+	RewriteCond %{REQUEST_FILENAME} !-d
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteRule ^ index.php [L]
+
+        RewriteCond %{HTTPS} Off
+        RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+        
+</IfModule>
+
+RewriteCond %{HTTP_HOST} ^mywinshiplending\.com$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.mywinshiplending\.com$
+RewriteRule ^/?$ "https\:\/\/winshiplending\.com\/" [R=301,L]
+
+RewriteCond %{HTTP_HOST} ^winshiplending\.net$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.winshiplending\.net$
+RewriteRule ^(.*)$ "https\:\/\/winshiplending\.com\/$1" [R=301,L]
+
+#RewriteCond %{HTTP_HOST} ^www\.winshiplending\.com$
+RewriteCond %{HTTP_HOST} ^winshiplending\.com$ [OR]
+RewriteRule ^(.*)$ "https\:\/\/winshiplending\.com\/$1" [R=301,L]
+

@@ -1,0 +1,88 @@
+Config|a:3:{s:9:"userAgent";s:32:"638f9508cd17f2e03acb0f4dfa0c81b4";s:4:"time";i:1520935749;s:9:"countdown";i:10;}Application|a:37:{s:6:"SubId1";s:0:"";s:6:"SubId2";s:0:"";s:6:"SubId3";s:0:"";s:6:"SubId4";s:0:"";s:6:"SubId5";s:0:"";s:5:"Check";N;s:11:"AffiliateId";s:3:"126";s:10:"CampaignId";s:3:"173";s:7:"OfferId";s:2:"36";s:10:"CreativeId";s:2:"87";s:5:"Theme";s:5:"Alpha";s:3:"Url";s:32:"https://winshiplending.xyz.local";s:9:"IPAddress";s:9:"127.0.0.1";s:8:"Template";s:7:"crystal";s:6:"Mobile";s:5:"false";s:7:"Browser";s:76:"Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:58.0) Gecko/20100101 Firefox/58.0";s:11:"Campaign_id";s:13:"5a01c374aefec";s:12:"Campaign_key";s:20:"PH4QvDX6cRWdxFyCJ2GZ";s:11:"LoanPurpose";s:4:"auto";s:12:"CreditRating";s:9:"excellent";s:3:"Zip";s:5:"12345";s:8:"Military";s:5:"false";s:5:"Agree";s:4:"true";s:7:"TrackId";i:4924;s:5:"State";s:2:"NY";s:4:"City";s:11:"Schenectady";s:7:"AppType";s:12:"personalloan";s:4:"Step";s:1:"2";s:10:"LoanAmount";s:4:"2500";s:9:"FirstName";s:9:"dfsdfsddf";s:8:"LastName";s:8:"sdfdfsdf";s:5:"Email";s:17:"sdfdsfd@gmail.com";s:8:"Address1";s:5:"hsdgd";s:8:"Address2";s:9:"hgfsdhdfd";s:13:"ResidenceType";s:20:"Own Without Mortgage";s:12:"RentMortgage";s:3:"120";s:17:"ResidentSinceDate";s:1:"6";}Script|a:2:{s:15:"ancillaryConfig";s:2649:"		
+//The numeric values are assigned by me.  These va
+var pages_map = {"home"  			: 6,
+				 "personal_info"	: 0,
+				 "verify_identity"	: 1,
+				 "employment_info"	: 2,
+				 "deposit_cash"		: 4,
+				 "finalize"			: 5
+				};
+
+				
+var ancillary_manager = {"page" : 	{"0"	: [],
+									 "1"	: [],
+									 "2"	: [],
+									 "4"	: [],
+									 "5"	: [],
+									 "6"	: []
+									},
+									
+						 "pop_config" : {}
+						};			
+
+
+
+function randomId(){
+	return Math.floor((Math.random() * 10) + 1);
+}
+
+
+function pop(manager_id){
+	var type = ancillary_manager.pop_config[manager_id].type;
+	var url = ancillary_manager.pop_config[manager_id].url;
+	var infinite_pop = ancillary_manager.pop_config[manager_id].infinite_pop;
+	var shown = ancillary_manager.pop_config[manager_id].shown;
+	var width = ancillary_manager.pop_config[manager_id].win_width;
+	var height = ancillary_manager.pop_config[manager_id].win_height;
+
+	//Only show once		
+	if(shown == 'true' && infinite_pop == 'false'){
+		return;
+	}
+	
+	window.open(url, 'win_'+randomId()+'_'+type+'_'+randomId(), 'width='+width+',height='+height+',titlebar=1,resizable=1,scrollbars=1');
+	ancillary_manager.pop_config[manager_id].shown = 'true';
+
+	
+}
+
+
+function ancillaryPageChangeCheck(page_id){
+				
+		
+	$.each( ancillary_manager.pop_config, function( index, obj ) {
+		//index is the same index in ancillary manager
+		
+		if(obj.type == 'page' && obj.page_id == page_id){
+			
+			pop(index);
+		}
+	});	
+
+}
+
+
+
+jQuery(document).ready(function(){
+								jQuery('#no_bank').on('click', function(){
+		pop(1);
+	});
+	
+													jQuery('#no_bank_pd').on('click', function(){
+		pop(2);
+	});
+	
+													//add to manager to be checked at time of action
+	var page_id = pages_map['personal_info'];						
+	ancillary_manager.pop_config[3] = {'url': '	http://leadstudiotrack.com/?a=131&c=232&p=r&s1=', 'type':'page', 'infinite_pop':'false', 'shown':'false', 'page_id':page_id, 'win_height':'1000', 'win_width':'1000'};		
+	
+																    var js_obj = JSON.parse('{"1":{"url":"http:\/\/leadstudiotrack.com\/?a=131&c=1032&s1=ncb","type":"click","infinite_pop":"false","shown":"false","win_height":"600","win_width":"600"},"2":{"url":"http:\/\/leadstudiotrack.com\/?a=131&c=1032&s1=ncb","type":"click","infinite_pop":"false","shown":"false","win_height":"400","win_width":"500"}}');
+				    	
+				    	//Add info to object	
+				    	$.each( js_obj, function( index, obj ) {
+						    ancillary_manager.pop_config[index] = {'url': obj.url, 'type': obj.type, 'infinite_pop': obj.infinite_pop, 'shown':'false', 'win_height':obj.win_height, 'win_width':obj.win_width};	
+						});
+										    	
+				
+					
+});";s:9:"Ancillary";s:5:"built";}
